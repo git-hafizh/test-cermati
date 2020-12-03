@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-heroku{
+  height: 100vh;
+  background: url('../public/heroku.jpg') no-repeat center, linear-gradient(to right,rgba(0, 74, 117, 0.9), rgba(0, 74, 117, 0.9));
+  background-blend-mode: multiply;
+  background-size: cover;
+}
+
+#slideUp-active{
+  transform: translateY(-100%);
+  transition: all 500ms ease-in;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  height: 0;
+}
+
+#slideUp{
+  transform: translateY(0);
+}
+
+.showNews{
+  display: block;
+}
+
+.hiddenNews{
+ display: none; 
+}
+
+.slideUpNews{
+  left:0;
+  transition: all 100ms ease-in-out;
+  animation-name:slideup;
+  animation-delay:0.5s;
+  animation-duration:0.8s;
+  animation-fill-mode:forwards;
+  animation-timing-function:ease-out;
+}
+
+@keyframes slideup {
+  0%{bottom:-100%}
+  100%{bottom:0;}
+}
+
+#btn-closed{
+  left:0;
+  transition: all 100ms ease-in-out;
+  animation-name:slidedown, slideup-after-10min;
+  animation-delay:0.5s, 600s;
+  animation-duration:0.8s, 0.8s;
+  animation-fill-mode:forwards;
+  animation-timing-function:ease-out;
+}
+
+@keyframes slidedown {
+  0%{bottom:0}
+  100%{bottom:-100%;}
+}
+
+@keyframes slideup-after-10min {
+  0%{bottom:-100%}
+  100%{bottom:0;}
+}
+
+#slideUp-before-clicked{
+  left:0;
+  transition: all 100ms ease-in-out;
+}
